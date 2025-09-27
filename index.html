@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ranking FIFA Amore – 150 Negara Unik</title>
+<title>Ranking FIFA Amore – 150 Negara</title>
 <style>
   body { font-family: Arial, sans-serif; background-color: #f0f2f5; color: #333; padding: 20px; }
   h1 { text-align: center; color: #004080; }
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<h1>Ranking FIFA Amore – 150 Negara Unik</h1>
+<h1>Ranking FIFA Amore – 150 Negara</h1>
 <table id="rankingTable">
 <thead>
   <tr>
@@ -29,7 +29,6 @@
 </table>
 
 <script>
-// 150 negara unik dengan bendera dan poin awal 0
 const countries = [
 { name:"Brazil", flag:"🇧🇷", points:0 },
 { name:"Argentina", flag:"🇦🇷", points:0 },
@@ -138,4 +137,20 @@ const countries = [
 { name:"Palestine", flag:"🇵🇸", points:0 },
 { name:"United Arab Emirates", flag:"🇦🇪", points:0 },
 { name:"Qatar", flag:"🇶🇦", points:0 },
-{ name:"Kuwait",flag : "🇰🇼*, points : 0 } ,
+{ name:"Kuwait", flag:"🇰🇼", points:0 },
+{ name:"Oman", flag:"🇴🇲", points:0 },
+{ name:"Bahrain", flag:"🇧🇭", points:0 },
+{ name:"Yemen", flag:"🇾🇪", points:0 }
+];
+
+// Generate tabel
+const tableBody = document.querySelector("#rankingTable tbody");
+countries.forEach((c,i) => {
+  const row = document.createElement("tr");
+  row.innerHTML = `<td>${i+1}</td><td>${c.flag} ${c.name}</td><td>${c.points}</td>`;
+  tableBody.appendChild(row);
+});
+
+// Nonaktifkan edit di kolom Poin
+document.querySelectorAll("#rankingTable td:nth-child(3)").forEach(cell => {
+  cell.contentEditable =
